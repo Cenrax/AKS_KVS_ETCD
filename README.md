@@ -62,3 +62,18 @@ We will be able to see the documentation
 ```
 etcdctl --endpoints=localhost:2379 --user root --password <your_password> endpoint health
 ```
+    
+Final step:
+    In the main.py file replace this 
+    ```
+    username = os.getenv('ETCD_USERNAME')
+password = os.getenv('ETCD_PASSWORD')
+
+# Create an etcd client
+etcd_client = Etcd3Client(host='my-etcd.default.svc.cluster.local', port=2379, user=username, password=password)
+    ```
+    
+    with
+     ```
+    etcd_client = Etcd3Client(host='127.0.0.1', port=2379, user='root', password=<your_password)
+    ```
