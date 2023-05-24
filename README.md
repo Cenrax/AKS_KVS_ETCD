@@ -1,3 +1,18 @@
+## How did I created the kubernetes cluster
+
+- Created a Kubernetes cluster in Azure
+- Configured my localmachine with az cmd using
+    ```
+    az aks get-credentials --resource-group <resource-group-name> --name <cluster-name>
+
+    ```
+- Connected it with my cluster (Verified it using kubectl get nodes)
+- Installed helm to deploy the etcd database in my cluster
+
+- 
+
+
+
 ## Run the server
 ```
 uvicorn main:app --host 0.0.0.0 --port 8000
