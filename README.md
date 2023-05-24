@@ -63,6 +63,9 @@ We will be able to see the documentation
 --initial-cluster my-etcd=http://0.0.0.0:2380 \
 --initial-cluster-state new
 ```
+    docker run -d --name my-etcd -p 2379:2379 -p 2380:2380 -e ETCD_ADVERTISE_CLIENT_URLS=http://localhost:2379 bitnami/etcd:latest
+
+    ```
 
 ## Locally check the health
 ```
