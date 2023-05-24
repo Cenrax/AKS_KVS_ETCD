@@ -72,6 +72,7 @@ etcd_client = Etcd3Client(host='my-etcd.default.svc.cluster.local', port=2379, u
     
 ```
 with
-
+```
+etcd_client = Etcd3Client(host='127.0.0.1', port=2379, user='root', password=<your-password>)
     
     
