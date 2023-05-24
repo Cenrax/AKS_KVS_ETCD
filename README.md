@@ -29,6 +29,11 @@
 The cluster is setup now we need to deploy the deployments and the service (so it can be accessed outside the cluster)
 
 Note : We need to have kubectl installed in the local-machine
+```
+cd scripts
+kubectl apply -f create_deployment.yaml
+kubectl get deployments
+```
 
 
 
