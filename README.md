@@ -35,6 +35,11 @@ kubectl apply -f create_deployment.yaml
 kubectl get deployments
 ```
 
+Now we need to create the service
+```
+kubectl apply -f create-service.yaml
+```
+
 
 
 
