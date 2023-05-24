@@ -52,8 +52,6 @@ We will be able to see the documentation
 ## Setup of the local development environment
     ```
     docker pull quay.io/coreos/etcd
-    ```
-   ```
     docker run -d --name my-etcd -p 2379:2379 -p 2380:2380 -e ETCD_ADVERTISE_CLIENT_URLS=http://localhost:2379 -e ETCD_ROOT_PASSWORD=your_password bitnami/etcd:latest
     ```
 
