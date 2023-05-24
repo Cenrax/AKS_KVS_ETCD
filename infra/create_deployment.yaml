@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+  labels:
+    app: fastapi-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-app
+    spec:
+      containers:
+        - name: fastapi-app
+          image: sketcd.azurecr.io/my-fastapi-app:v3
+          ports:
+            - containerPort: 8000
+          env:
+            - name: ETCD_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: etcd-credentials
+                  key: username
+            - name: ETCD_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: etcd-credentials
+                  key: password
