@@ -53,18 +53,8 @@ We will be able to see the documentation
     ```
     docker pull quay.io/coreos/etcd
     ```
-    ```
-    docker run -d --name my-etcd -p 2379:2379 -p 2380:2380 quay.io/coreos/etcd:latest /usr/local/bin/etcd \
---advertise-client-urls http://0.0.0.0:2379 \
---listen-client-urls http://0.0.0.0:2379 \
---initial-advertise-peer-urls http://0.0.0.0:2380 \
---listen-peer-urls http://0.0.0.0:2380 \
---initial-cluster-token etcd-cluster-1 \
---initial-cluster my-etcd=http://0.0.0.0:2380 \
---initial-cluster-state new
-```
-    docker run -d --name my-etcd -p 2379:2379 -p 2380:2380 -e ETCD_ADVERTISE_CLIENT_URLS=http://localhost:2379 bitnami/etcd:latest
-
+   ```
+    docker run -d --name my-etcd -p 2379:2379 -p 2380:2380 -e ETCD_ADVERTISE_CLIENT_URLS=http://localhost:2379 -e ETCD_ROOT_PASSWORD=your_password bitnami/etcd:latest
     ```
 
 ## Locally check the health
