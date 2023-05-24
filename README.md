@@ -42,7 +42,11 @@ kubectl get svc
 ```
 Please note the external IP
 
-Now in a browser put http://<external-ip>:80/docs
+Now in a browser put http://<<external-ip>>:80/docs
+    
+We will be able to see the documentation
+<img width="909" alt="image" src="https://github.com/Cenrax/AKS_KVS_ETCD/assets/43017632/803612b4-6352-4323-87f8-57b2c448d129">
+
 
 
 
