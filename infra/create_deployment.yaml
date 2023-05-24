@@ -21,9 +21,12 @@ spec:
             - containerPort: 8000
           env:
             - name: ETCD_USERNAME
-              value: "root"
+              valueFrom:
+                secretKeyRef:
+                  name: etcd-credentials
+                  key: username
             - name: ETCD_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: my-etcd
-                  key: etcd-root-password
+                  name: etcd-credentials
+                  key: password
