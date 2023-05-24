@@ -21,12 +21,6 @@ spec:
             - containerPort: 8000
           env:
             - name: ETCD_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: etcd-credentials
-                  key: username
+              value: "root"
             - name: ETCD_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: etcd-credentials
-                  key: password
+              value: "$(kubectl get secret --namespace default my-etcd -o jsonpath="{.data.etcd-root-password}" | base64 -d)"

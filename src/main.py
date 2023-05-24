@@ -9,7 +9,7 @@ username = os.getenv('ETCD_USERNAME')
 password = os.getenv('ETCD_PASSWORD')
 
 # Create an etcd client
-etcd_client = Etcd3Client(host='etcd-demo.default.svc.cluster.local', port=2379, user=username, password=password)
+etcd_client = Etcd3Client(host='my-etcd.default.svc.cluster.local', port=2379, user=username, password=password)
 
 class Item(BaseModel):
     key: str

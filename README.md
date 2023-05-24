@@ -10,7 +10,26 @@
     ```
     helm install my-etcd oci://registry-1.docker.io/bitnamicharts/etcd
     ```
-- 
+- Created an Azure Container Registry and pushed the image
+    ```
+    cd src
+    docker build -t my-fastapi-app:<version-no> .
+    docker tag my-fastapi-app:<version-no> <acr-name>.azurecr.io/my-fastapi-app:<version-name>
+    docker push <acr-name>.azurecr.io/my-fastapi-app:<version-name>
+    ```
+- Connect to the ACR
+    ```
+    az acr login --name <acr-name>
+    ```
+- Connect the cluster with the ACR
+    ```
+    az aks update -n <cluster-name> -g <resource-group-name> --attach-acr <acr-name>
+    ```
+
+The cluster is setup now we need to deploy the deployments and the service (so it can be accessed outside the cluster)
+
+Note : We need to have kubectl installed in the local-machine
+
 
 
 
