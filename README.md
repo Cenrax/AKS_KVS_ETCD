@@ -49,26 +49,20 @@ We will be able to see the documentation
 
 
 
-
-
-## Run the server
+## Setup of the local development environment
+    ```
+    docker pull quay.io/coreos/etcd
+    ```
+    ```
+    docker run -d --name my-etcd -p 2379:2379 -p 2380:2380 quay.io/coreos/etcd:latest /usr/local/bin/etcd \
+--advertise-client-urls http://0.0.0.0:2379 \
+--listen-client-urls http://0.0.0.0:2379 \
+--initial-advertise-peer-urls http://0.0.0.0:2380 \
+--listen-peer-urls http://0.0.0.0:2380 \
+--initial-cluster-token etcd-cluster-1 \
+--initial-cluster my-etcd=http://0.0.0.0:2380 \
+--initial-cluster-state new
 ```
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-## Process to run the app
-
-- docker build -t my-fastapi-app:latest .
-- docker tag my-fastapi-app:latest sketcd.azurecr.io/my-fastapi-app:latest
-- docker push sketcd.azurecr.io/my-fastapi-app:latest
-
-
-## Login to ACR
-- az acr login --name sketcd
-
-
-## Get the logs
-- kubectl logs -f deployment/fastapi-app
 
 ## Locally check the health
 ```
