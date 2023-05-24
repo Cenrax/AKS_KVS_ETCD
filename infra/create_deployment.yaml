@@ -16,11 +16,14 @@ spec:
     spec:
       containers:
         - name: fastapi-app
-          image: sketcd.azurecr.io/my-fastapi-app:v3
+          image: sketcd.azurecr.io/my-fastapi-app:v5
           ports:
             - containerPort: 8000
           env:
             - name: ETCD_USERNAME
               value: "root"
             - name: ETCD_PASSWORD
-              value: "$(kubectl get secret --namespace default my-etcd -o jsonpath="{.data.etcd-root-password}" | base64 -d)"
+              valueFrom:
+                secretKeyRef:
+                  name: my-etcd
+                  key: etcd-root-password
