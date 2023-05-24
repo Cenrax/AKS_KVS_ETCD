@@ -37,8 +37,12 @@ kubectl get deployments
 
 Now we need to create the service
 ```
-kubectl apply -f create-service.yaml
+kubectl apply -f create_service.yaml
+kubectl get svc 
 ```
+Please note the external IP
+
+Now in a browser put http://<external-ip>:80/docs
 
 
 
