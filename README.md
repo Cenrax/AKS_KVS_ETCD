@@ -46,21 +46,21 @@ kubectl get svc
 ```
 Please note the external IP
 
-Now in a browser put http://<<external-ip>>:80/docs
+Now in a browser put http://"xx.xx.xx.xx":80/docs
     
 We will be able to see the documentation
 <img width="909" alt="image" src="https://github.com/Cenrax/AKS_KVS_ETCD/assets/43017632/803612b4-6352-4323-87f8-57b2c448d129">
     
 ### How to test in post
  
-- For adding use POST http://<<external-ip>>:80/put with the body as
+- For adding use POST http://xx.xx.xx.xx:80/put with the body as
     ```  
     {
     "key" : "key3",
     "value" : "xyz"
      }
     ```
-
+- For fetching use GET http://xx.xx.xx.xx:80/get/{key}
 
 
 ## Setup of the local development environment
