@@ -30,3 +30,10 @@ spec:
                 secretKeyRef:
                   name: etcd-credentials
                   key: password
+          volumeMounts:
+            - name: etcd-data
+              mountPath: /data
+      volumes:
+        - name: etcd-data
+          persistentVolumeClaim:
+            claimName: etcd-pvc
