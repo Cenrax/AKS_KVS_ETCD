@@ -2,7 +2,7 @@
 
 - Created a Kubernetes cluster in Azure
     ```
-    az aks create --resource-group <resource_group_name> --name <cluster_name> --location "Central India" --node-count <node_count> --node-vm-size <vm_size> --enable-addons monitoring --generate-ssh-keys
+    az aks create --resource-group <resource_group_name> --name <cluster_name> --location "Central India" --node-count <node_count> --node-vm-size <vm_size> --enable-addons monitoring 
     ```
 - Configured my localmachine with az cmd using
     ```
