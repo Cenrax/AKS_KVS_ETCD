@@ -1,6 +1,9 @@
 ## How did I created the kubernetes cluster
 
 - Created a Kubernetes cluster in Azure
+    ```
+    az aks create --resource-group <resource_group_name> --name <cluster_name> --location "Central India" --node-count <node_count> --node-vm-size <vm_size> --enable-addons monitoring --generate-ssh-keys
+    ```
 - Configured my localmachine with az cmd using
     ```
     az aks get-credentials --resource-group <resource-group-name> --name <cluster-name>
@@ -31,6 +34,7 @@ The cluster is setup now we need to deploy the deployments and the service (so i
 Note : We need to have kubectl installed in the local-machine
 ```
 cd scripts
+kubectl apply -f create_pvc.yaml (using azure file managed service for faster processing we can use the premium services too)
 kubectl apply -f create_deployment.yaml
 kubectl get deployments
 ```
