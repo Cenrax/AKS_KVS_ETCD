@@ -33,7 +33,7 @@ The cluster is setup now we need to deploy the deployments and the service (so i
 
 Note : We need to have kubectl installed in the local-machine
 ```
-cd scripts
+cd manifests
 kubectl apply -f create_pvc.yaml (using azure file managed service for faster processing we can use the premium services too)
 kubectl apply -f create_deployment.yaml
 kubectl get deployments
